@@ -1,6 +1,6 @@
-package com.example.common.configuration;
+package com.example.common.config;
 
-import com.example.common.interceptors.RateLimitingInterceptor;
+import com.example.rateLimit.interceptor.RateLimitingInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
