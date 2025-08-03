@@ -11,10 +11,10 @@ import java.util.Optional;
 public class PerIpStrategy implements RateLimitKeyStrategy {
 
     @Override
-    public List<String> resolveKeys(HttpServletRequest request){
+    public String resolveKeys(HttpServletRequest request){
         String ip = Optional.ofNullable(request.getHeader("ip"))
                 .orElse(request.getRemoteAddr());
         String uri = request.getRequestURI();
-        return List.of("rl:ip:"+ip+":"+uri);
+        return "rl:ip:"+ip+":"+uri;
     }
 }
