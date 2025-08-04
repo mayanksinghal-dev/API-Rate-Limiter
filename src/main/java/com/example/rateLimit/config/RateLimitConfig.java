@@ -11,4 +11,10 @@ public class RateLimitConfig {
 
     @Value("${blockSeconds:60}")
     public int blockSeconds;
+
+    @Value("${tokenCapacity:60}")
+    public int tokenCapacity;
+
+    @Value("${tokenRefillRate:5}")
+    public int tokenRefillRate;
 }
