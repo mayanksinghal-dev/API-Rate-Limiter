@@ -18,3 +18,4 @@ public class RateLimitConfig {
     @Value("${tokenRefillRate:5}")
     public int tokenRefillRate;
 }
+
