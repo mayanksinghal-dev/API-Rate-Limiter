@@ -1,0 +1,9 @@
+Hi there!! This file is bulk of features i just pretend to implement in near future.
+
+1- Maintain Multithreading for scalability
+2- Add JWT TOKEN based rate limiting and algorithm resolver
+3- Create an annotation to manually define which
+4- Implement prometheaus, Grafana, ELK for monitoring.
+5- Implement spring security, OAuth for Login and JWT for rest apis.
+6- Role and Plan based rate limiting strategies, algo, limits, block seconds like a freemium model.
+7- Performance testing

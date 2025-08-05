@@ -20,6 +20,11 @@ public class FixedWindow implements RateLimitAlgorithm {
     @Autowired
     private RateLimitConfig rateLimitConfig;
 
+    /**
+     * Validates free users against userId and IP with no of requests.
+     * @param keys Dynamic keys used in redis to verify user rates
+     * @return boolean reflecting if user/IP is abuser or not
+     */
     @Override
     public boolean isApproved(Set<String> keys){
         try{

@@ -1,5 +1,6 @@
 package com.example.rateLimit.utils;
 
+import com.example.common.config.ExecutorConfig;
 import com.example.rateLimit.interfaces.RateLimitAlgorithm;
 import com.example.rateLimit.interfaces.RateLimitKeyStrategy;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,12 +23,14 @@ public class RateLimitService {
     @Autowired
     private AlgorithmResolver algorithmResolver;
 
+    @Autowired
+    private ExecutorService executorService;
+
     public boolean isApprove(HttpServletRequest request) {
         //TODO - use jwt based login and decode and store in redis here. Use the decoded jwt to get user tier.
-
         RateLimitAlgorithm algorithm = algorithmResolver.algorithm("FREE");
         List<RateLimitKeyStrategy> strategies = strategyResolver.resolveStrategy(request);
-        Set<String> allKeys = strategies.stream().map(strategy-> strategy.resolveKeys(request)).collect(Collectors.toSet());
+        Set<String> allKeys = strategies.stream().map(strategy -> strategy.resolveKeys(request)).collect(Collectors.toSet());
         return algorithm.isApproved(allKeys);
     }
 }
