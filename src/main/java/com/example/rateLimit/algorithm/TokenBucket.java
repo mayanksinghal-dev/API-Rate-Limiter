@@ -11,51 +11,6 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-//
-//@Component(Constants.Tier.PREMIUM_TIER)
-//public class TokenBucket implements RateLimitAlgorithm {
-//    private final double refillRate;
-//    private final int capacity;
-//    private double tokens;
-//    private long lastRefillTimestamp;
-//
-//    @Autowired
-//    private FixedWindow fixedWindow;
-//
-//    @Autowired
-//    RedisTemplate<String, String> redisTemplate;
-//
-//    @Autowired
-//    public TokenBucket(RateLimitConfig rateLimitConfig) {
-//        this.refillRate = rateLimitConfig.tokenRefillRate;
-//        this.capacity = rateLimitConfig.tokenCapacity;
-//        redisTemplate.opsForValue().set("tokens",String.valueOf(rateLimitConfig.tokenCapacity));
-//        redisTemplate.opsForValue().set("lastRefillTimestamp",String.valueOf(System.nanoTime()));
-//    }
-//
-//    public synchronized boolean isApproved(Set<String> keys) {
-//        refill();
-//        String tokens= redisTemplate.opsForValue().get("tokens");
-//        if (Integer.parseInt(tokens) >= 1) {
-//            boolean result = fixedWindow.isApproved(keys);
-//            if (result) {
-//                redisTemplate.opsForValue().decrement("tokens");
-//            }
-//            return result;
-//        }
-//        return false;
-//    }
-//
-//    private void refill() {
-//        long now = System.nanoTime();
-//        double secondsSinceLast = (now - lastRefillTimestamp) / 1_000_000_000.0;
-//        double newTokens = secondsSinceLast * refillRate;
-//        tokens = Math.min(capacity, tokens + newTokens);
-//        redisTemplate.opsForValue().set("tokens",String.valueOf(tokens));
-//        lastRefillTimestamp = now;redisTemplate.opsForValue().set("lastRefillTimestamp",String.valueOf(now));
-//    }
-//}
-
 
 @Component(Constants.Tier.PREMIUM_TIER)
 public class TokenBucket implements RateLimitAlgorithm {
