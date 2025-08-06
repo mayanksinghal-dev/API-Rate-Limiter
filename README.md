@@ -12,8 +12,6 @@ API Rate Limiting is crucial for:
 - Enabling monetization (freemium/premium tiers)
 - Guaranteeing fair usage across consumers
 
-While many libraries exist, **most are hardcoded, inflexible, or lack production readiness**. This project changes that by offering a fully **modular, pluggable, and scalable** rate limiter that can be adapted to any use case.
-
 ---
 
 ## ✨ Key Features
@@ -48,7 +46,7 @@ Tested using **Apache JMeter** with **1000 concurrent virtual users**, achieving
 - **APDEX Score**: `1.0` (Excellent)
 - **First response latency**: ~1.5s (warm-up)
 - **Average response latency**: ~30-50ms (post warm-up)
-
+![img.png](img.png)
 ### 🔬 Real Optimizations Implemented
 
 - Replaced in-memory variables with **Redis-backed, distributed-safe** counters.
