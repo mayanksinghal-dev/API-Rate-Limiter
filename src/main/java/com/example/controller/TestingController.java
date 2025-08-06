@@ -17,9 +17,7 @@ public class TestingController {
 
     @GetMapping("/test")
     public void test(
-            @RequestBody String data,
-            @RequestHeader Map<String, String> headers
     ){
-        this.testingService.test(data);
+        this.testingService.test();
     }
 }
